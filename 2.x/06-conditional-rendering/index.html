@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Conditional Rendering</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    button,
+    input {
+      display: block;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>Conditional Rendering</h1>
+
+    <button @click="toggle">Toggle `ON` variable</button>
+
+    <h2>`v-if`</h2>
+    <p>
+      <span v-if="on">Toggle: ON</span>
+      <span v-else>Toggle: OFF</span>
+    </p>
+
+    <h2>Conditional Groups with `v-if` on `template`</h2>
+    <template v-if="on">
+      <h1>Template ON</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+      </p>
+    </template>
+
+    <h2>`v-else`</h2>
+    <div v-if="on">
+      Now you see me.
+    </div>
+    <div v-else>
+      Now you don't.
+    </div>
+
+    <h2>`v-else-if`</h2>
+    <input 
+      type="text"
+      v-model="type"
+      placeholder="Type 'A', 'B' or 'C'">
+    <p v-if="typeTreated === 'a'">You chose A</p>
+    <p v-else-if="typeTreated === 'b'">You chose B</p>
+    <p v-else-if="typeTreated === 'c'">You chose C</p>
+    <p v-else>Choose A, B or C</p>
+
+    <h2>Controlling Reusable Elements with `key`</h2>
+    <template v-if="loginWithEmail">
+      <label>Email</label>
+      <input type="text" placeholder="Enter your email" key="email-input">
+    </template>
+    <template v-else>
+      <label>Username</label>
+      <input type="text" placeholder="Enter your username" key="username-input">
+    </template>
+
+    <button @click="toggleLoginType">
+      Log in with your {{ loginWithEmail ? 'Username' : 'Email' }}
+    </button>
+
+    <h2>`v-show`</h2>
+    <p v-show="on">Block using `v-show`</p>
+
+    <p>
+      Generally speaking, v-if has higher toggle costs while v-show has higher initial render costs. So prefer v-show if you need to toggle something very often, and prefer v-if if the condition is unlikely to change at runtime.
+    </p>
+  </div>
+
+  <!-- vendors -->
+  <script src="../vue.js"></script>
+
+  <!-- app -->
+  <script src="app.js"></script>
+</body>
+</html>

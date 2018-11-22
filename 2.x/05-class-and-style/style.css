@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #101010;
+}
+
+#app {
+  background-color: #1a1919;
+  color: #ddd;
+  font-family: sans-serif;
+  width: 50%;
+  height: 500px;
+  margin: auto;
+  padding: 16px 64px;
+}
+
+.active {
+  font-weight: bold;
+  background-color: #0f0;
+  color: #000;
+}
+
+.big { font-size: 2em }
+
+button { margin-bottom: 20px }

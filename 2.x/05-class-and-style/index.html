@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Class and Style</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <h1>Class and Style</h1>
+
+    <button @click="toggleClass">Toggle</button>
+
+    <p :class="{ active: isActive }">
+      Class Example
+    </p>
+
+    <p :class="computedClass">
+      Computed property on class example
+    </p>
+
+    <p :class="arrayClass">
+      Array of Classes
+    </p>
+
+    <hr>
+
+    <p :style="style1">
+      Style example
+    </p>
+
+    <p :style="[style1, style2]">
+      Style - Array example
+    </p>
+  </div>
+
+  <!-- vendors -->
+  <script src="../vue.js"></script>
+
+  <!-- app -->
+  <script src="app.js"></script>
+</body>
+</html>
